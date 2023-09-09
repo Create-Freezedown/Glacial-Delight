@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "glacialdelight:block/heater/bottom_kindled",
+    "front": "glacialdelight:block/heater/front_kindled",
+    "side": "glacialdelight:block/heater/side_kindled",
+    "top": "glacialdelight:block/heater/top_kindled"
+  }
+}

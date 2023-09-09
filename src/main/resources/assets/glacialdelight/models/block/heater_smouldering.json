@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "glacialdelight:block/heater/bottom_smouldering",
+    "front": "glacialdelight:block/heater/front_smouldering",
+    "side": "glacialdelight:block/heater/side_smouldering",
+    "top": "glacialdelight:block/heater/top_smouldering"
+  }
+}
