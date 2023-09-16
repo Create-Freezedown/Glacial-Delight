@@ -1,5 +1,7 @@
 package com.pouffydev.glacialdelight.content.block.util;
 
+import com.pouffydev.glacialdelight.foundation.block_entity.SmartBlockEntity;
+import com.pouffydev.glacialdelight.foundation.block_entity.behaviour.BlockEntityBehaviour;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
@@ -8,8 +10,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
-public class GDBlockEntity extends SyncedBlockEntity {
+public abstract class GDBlockEntity extends SmartBlockEntity {
     
     public GDBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
@@ -62,11 +65,5 @@ public class GDBlockEntity extends SyncedBlockEntity {
         CompoundTag nbt = new CompoundTag();
         saveSynced(nbt);
         return nbt;
-    }
-    
-    @Override
-    public void saveAdditional(CompoundTag nbt) {
-        super.saveAdditional(nbt);
-        saveSynced(nbt);
     }
 }

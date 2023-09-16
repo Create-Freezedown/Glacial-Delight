@@ -10,17 +10,18 @@ import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.block.Blocks;
+import org.jetbrains.annotations.NotNull;
 
 public class HeaterFreezingRecipe extends CampfireCookingRecipe {
     public HeaterFreezingRecipe(ResourceLocation pId, String pGroup, Ingredient pIngredient, ItemStack pResult, float pExperience, int pCookingTime) {
         super(pId, pGroup, pIngredient, pResult, pExperience, pCookingTime);
     }
     
-    public ItemStack getToastSymbol() {
-        return new ItemStack(Blocks.CAMPFIRE);
+    public @NotNull ItemStack getToastSymbol() {
+        return new ItemStack(Blocks.ICE);
     }
     
-    public RecipeSerializer<?> getSerializer() {
+    public @NotNull RecipeSerializer<?> getSerializer() {
         return GDRecipeTypes.freezingSerializer.get();
     }
     public static class Serializer implements RecipeSerializer<HeaterFreezingRecipe> {
@@ -29,7 +30,7 @@ public class HeaterFreezingRecipe extends CampfireCookingRecipe {
         
         public HeaterFreezingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
             String s = GsonHelper.getAsString(pJson, "group", "");
-            JsonElement jsonelement = (JsonElement)(GsonHelper.isArrayNode(pJson, "ingredient") ? GsonHelper.getAsJsonArray(pJson, "ingredient") : GsonHelper.getAsJsonObject(pJson, "ingredient"));
+            JsonElement jsonelement = GsonHelper.isArrayNode(pJson, "ingredient") ? GsonHelper.getAsJsonArray(pJson, "ingredient") : GsonHelper.getAsJsonObject(pJson, "ingredient");
             Ingredient ingredient = Ingredient.fromJson(jsonelement);
             //Forge: Check if primitive string to keep vanilla or a object which can contain a count field.
             if (!pJson.has("result")) throw new com.google.gson.JsonSyntaxException("Missing result, expected to find a string or object");

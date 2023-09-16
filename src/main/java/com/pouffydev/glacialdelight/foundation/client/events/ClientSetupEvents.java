@@ -1,5 +1,6 @@
 package com.pouffydev.glacialdelight.foundation.client.events;
 
+import com.pouffydev.glacialdelight.GlacialDelight;
 import com.pouffydev.glacialdelight.content.block.heater.HeaterRenderer;
 import com.pouffydev.glacialdelight.init.GDBlockEntities;
 import net.minecraftforge.api.distmarker.Dist;
@@ -8,7 +9,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(
-        modid = "glacialdelight",
+        modid = GlacialDelight.ID,
         bus = Mod.EventBusSubscriber.Bus.MOD,
         value = {Dist.CLIENT}
 )

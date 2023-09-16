@@ -4,8 +4,8 @@ import com.pouffydev.glacialdelight.foundation.util.lang.Lang;
 import net.minecraft.util.StringRepresentable;
 
 public enum HeaterLevel implements StringRepresentable {
-    FREEZING,
     NONE,
+    FREEZING,
     SMOULDERING,
     KINDLED,
     SEETHING;

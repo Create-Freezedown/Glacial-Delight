@@ -9,6 +9,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -27,6 +28,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
+import javax.annotation.Nonnull;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(GlacialDelight.ID)
 public class GlacialDelight
@@ -35,7 +38,14 @@ public class GlacialDelight
     public static final String ID = "glacialdelight";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
-
+    public static final CreativeModeTab tab = new CreativeModeTab(GlacialDelight.ID)
+    {
+        @Nonnull
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(GDBlocks.heater.get());
+        }
+    };
     public GlacialDelight()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

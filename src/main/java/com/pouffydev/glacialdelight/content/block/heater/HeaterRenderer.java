@@ -17,29 +17,39 @@ public class HeaterRenderer implements BlockEntityRenderer<HeaterBlockEntity> {
     public HeaterRenderer(BlockEntityRendererProvider.Context context) {
     }
     
-    public void render(HeaterBlockEntity heaterEntity, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int combinedLightIn, int combinedOverlayIn) {
-        Direction direction = ((Direction)heaterEntity.getBlockState().getValue(HeaterBlock.facing)).getOpposite();
-        ItemStackHandler inventory = heaterEntity.getInventory();
-        int posLong = (int)heaterEntity.getBlockPos().asLong();
+    @Override
+    public void render(HeaterBlockEntity stoveEntity, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int combinedLightIn, int combinedOverlayIn) {
+        Direction direction = stoveEntity.getBlockState().getValue(HeaterBlock.facing).getOpposite();
         
-        for(int i = 0; i < inventory.getSlots(); ++i) {
+        ItemStackHandler inventory = stoveEntity.getInventory();
+        int posLong = (int) stoveEntity.getBlockPos().asLong();
+        
+        for (int i = 0; i < inventory.getSlots(); ++i) {
             ItemStack stoveStack = inventory.getStackInSlot(i);
             if (!stoveStack.isEmpty()) {
                 poseStack.pushPose();
-                poseStack.translate(0.5, 1.02, 0.5);
+                
+                // Center item above the stove
+                poseStack.translate(0.5D, 1.02D, 0.5D);
+                
+                // Rotate item to face the stove's front side
                 float f = -direction.toYRot();
                 poseStack.mulPose(Vector3f.YP.rotationDegrees(f));
-                poseStack.mulPose(Vector3f.XP.rotationDegrees(90.0F));
-                Vec2 itemOffset = heaterEntity.getStoveItemOffset(i);
-                poseStack.translate((double)itemOffset.x, (double)itemOffset.y, 0.0);
-                poseStack.scale(0.375F, 0.375F, 0.375F);
-                if (heaterEntity.getLevel() != null) {
-                    Minecraft.getInstance().getItemRenderer().renderStatic(stoveStack, ItemTransforms.TransformType.FIXED, LevelRenderer.getLightColor(heaterEntity.getLevel(), heaterEntity.getBlockPos().above()), combinedOverlayIn, poseStack, buffer, posLong + i);
-                }
                 
+                // Rotate item flat on the stove. Use X and Y from now on
+                poseStack.mulPose(Vector3f.XP.rotationDegrees(90.0F));
+                
+                // Neatly align items according to their index
+                Vec2 itemOffset = stoveEntity.getStoveItemOffset(i);
+                poseStack.translate(itemOffset.x, itemOffset.y, 0.0D);
+                
+                // Resize the items
+                poseStack.scale(0.375F, 0.375F, 0.375F);
+                
+                if (stoveEntity.getLevel() != null)
+                    Minecraft.getInstance().getItemRenderer().renderStatic(stoveStack, ItemTransforms.TransformType.FIXED, LevelRenderer.getLightColor(stoveEntity.getLevel(), stoveEntity.getBlockPos().above()), combinedOverlayIn, poseStack, buffer, posLong + i);
                 poseStack.popPose();
             }
         }
-        
     }
 }

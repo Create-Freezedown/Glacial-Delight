@@ -1,5 +1,6 @@
 package com.pouffydev.glacialdelight.init;
 
+import com.pouffydev.glacialdelight.GlacialDelight;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -17,6 +18,6 @@ public class GDItems {
     
     static {
         items = DeferredRegister.create(ForgeRegistries.ITEMS, ID);
-        heater = items.register("heater", () -> new BlockItem(GDBlocks.heater.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+        heater = items.register("heater", () -> new BlockItem(GDBlocks.heater.get(), new Item.Properties().tab(GlacialDelight.tab)));
     }
 }

@@ -6,10 +6,14 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.function.ToIntFunction;
 
 import static com.pouffydev.glacialdelight.GlacialDelight.ID;
 
@@ -18,6 +22,11 @@ public class GDBlocks {
     public static final DeferredRegister<Block> blocks;
     public static final RegistryObject<HeaterBlock> heater;
     
+    private static ToIntFunction<BlockState> litBlockEmission(int lightValue) {
+        return (state) -> {
+            return (Boolean)state.getValue(BlockStateProperties.LIT) ? lightValue : 0;
+        };
+    }
     static {
         blocks = DeferredRegister.create(ForgeRegistries.BLOCKS, ID);
         heater = blocks.register("heater", () -> new HeaterBlock(BlockBehaviour.Properties.of(Material.STONE)));
