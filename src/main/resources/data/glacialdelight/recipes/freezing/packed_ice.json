@@ -1,0 +1,9 @@
+{
+  "type": "glacialdelight:heater_freezing",
+  "cookingtime": 600,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "minecraft:ice"
+  },
+  "result": "minecraft:packed_ice"
+}

@@ -27,9 +27,12 @@ public class GDBlocks {
             return (Boolean)state.getValue(BlockStateProperties.LIT) ? lightValue : 0;
         };
     }
+    private static ToIntFunction<BlockState> heaterEmission() {
+        return HeaterBlock::getLight;
+    }
     static {
         blocks = DeferredRegister.create(ForgeRegistries.BLOCKS, ID);
-        heater = blocks.register("heater", () -> new HeaterBlock(BlockBehaviour.Properties.of(Material.STONE)));
+        heater = blocks.register("heater", () -> new HeaterBlock(BlockBehaviour.Properties.of(Material.STONE).lightLevel(heaterEmission())));
     }
     
 }

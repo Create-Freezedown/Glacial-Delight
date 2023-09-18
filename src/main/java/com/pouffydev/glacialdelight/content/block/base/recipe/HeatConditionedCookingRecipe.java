@@ -1,8 +1,9 @@
-package com.pouffydev.glacialdelight.content.block.base;
+package com.pouffydev.glacialdelight.content.block.base.recipe;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import com.pouffydev.glacialdelight.content.block.base.recipe.util.HeatCondition;
 import com.pouffydev.glacialdelight.content.block.util.HeaterLevel;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
@@ -36,9 +37,9 @@ public class HeatConditionedCookingRecipe implements Recipe<RecipeWrapper> {
     private final ItemStack container;
     private final float experience;
     private final int cookTime;
-    protected HeaterLevel requiredHeat;
+    protected static HeatCondition requiredHeat;
     
-    public HeatConditionedCookingRecipe(ResourceLocation id, String group, NonNullList<Ingredient> inputItems, ItemStack output, ItemStack container, float experience, int cookTime, HeaterLevel requiredHeat) {
+    public HeatConditionedCookingRecipe(ResourceLocation id, String group, NonNullList<Ingredient> inputItems, ItemStack output, ItemStack container, float experience, int cookTime, HeatCondition requiredHeat) {
         this.id = id;
         this.group = group;
         this.inputItems = inputItems;
@@ -151,7 +152,9 @@ public class HeatConditionedCookingRecipe implements Recipe<RecipeWrapper> {
         result = 31 * result + this.getCookTime();
         return result;
     }
-    
+    public HeatCondition getRequiredHeat() {
+        return requiredHeat;
+    }
     public static class Serializer implements RecipeSerializer<HeatConditionedCookingRecipe> {
         public Serializer() {
         }
@@ -169,7 +172,8 @@ public class HeatConditionedCookingRecipe implements Recipe<RecipeWrapper> {
                 ItemStack container = GsonHelper.isValidNode(json, "container") ? CraftingHelper.getItemStack(GsonHelper.getAsJsonObject(json, "container"), true) : ItemStack.EMPTY;
                 float experienceIn = GsonHelper.getAsFloat(json, "experience", 0.0F);
                 int cookTimeIn = GsonHelper.getAsInt(json, "cookingtime", 200);
-                HeaterLevel requiredHeatIn = HeaterLevel.findByName(GsonHelper.getAsString(json, "required_heat", "none"));
+                String requiredHeatString = GsonHelper.getAsString(json, "required_heat", "warmed");
+                HeatCondition requiredHeatIn = HeatCondition.valueOf(requiredHeatString);
                 return new HeatConditionedCookingRecipe(recipeId, groupIn, inputItemsIn, outputIn, container, experienceIn, cookTimeIn, requiredHeatIn);
             }
         }
@@ -215,7 +219,7 @@ public class HeatConditionedCookingRecipe implements Recipe<RecipeWrapper> {
             buffer.writeItem(recipe.container);
             buffer.writeFloat(recipe.experience);
             buffer.writeVarInt(recipe.cookTime);
-            buffer.writeUtf(recipe.requiredHeat.toString());
+            buffer.writeUtf(requiredHeat.toString());
         }
     }
 }

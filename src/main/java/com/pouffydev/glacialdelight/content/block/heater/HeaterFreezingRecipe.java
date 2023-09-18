@@ -12,9 +12,9 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 
-public class HeaterFreezingRecipe extends CampfireCookingRecipe {
+public class HeaterFreezingRecipe extends AbstractCookingRecipe {
     public HeaterFreezingRecipe(ResourceLocation pId, String pGroup, Ingredient pIngredient, ItemStack pResult, float pExperience, int pCookingTime) {
-        super(pId, pGroup, pIngredient, pResult, pExperience, pCookingTime);
+        super(GDRecipeTypes.freezing.get(), pId, pGroup, pIngredient, pResult, pExperience, pCookingTime);
     }
     
     public @NotNull ItemStack getToastSymbol() {

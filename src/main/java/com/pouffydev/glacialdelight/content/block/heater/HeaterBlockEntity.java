@@ -57,30 +57,6 @@ public class HeaterBlockEntity extends GDBlockEntity {
         activeFuel = FuelType.NONE;
         remainingBurnTime = 0;
     }
-    
-    //public void load(CompoundTag compound) {
-    //    super.load(compound);
-    //    if (compound.contains("Inventory")) {
-    //        this.inventory.deserializeNBT(compound.getCompound("Inventory"));
-    //    } else {
-    //        this.inventory.deserializeNBT(compound);
-    //    }
-    //
-    //    int[] arrayCookingTimesTotal;
-    //    if (compound.contains("CookingTimes", 11)) {
-    //        arrayCookingTimesTotal = compound.getIntArray("CookingTimes");
-    //        System.arraycopy(arrayCookingTimesTotal, 0, this.cookingTimes, 0, Math.min(this.cookingTimesTotal.length, arrayCookingTimesTotal.length));
-    //    }
-    //
-    //    if (compound.contains("CookingTotalTimes", 11)) {
-    //        arrayCookingTimesTotal = compound.getIntArray("CookingTotalTimes");
-    //        System.arraycopy(arrayCookingTimesTotal, 0, this.cookingTimesTotal, 0, Math.min(this.cookingTimesTotal.length, arrayCookingTimesTotal.length));
-    //    }
-    //
-    //}
-    public HeaterLevel heaterLevel(HeaterLevel hLevel, Level world, BlockPos pos) {
-        return world.getBlockState(pos).getBlock() instanceof HeaterBlock ? world.getBlockState(pos).getValue(heatLevel) : hLevel;
-    }
     private void smokingRecipe() {
         if (this.level != null) {
             boolean didInventoryChange = false;
@@ -168,7 +144,6 @@ public class HeaterBlockEntity extends GDBlockEntity {
         }
         
     }
-    
     public static void animationTick(Level level, BlockPos pos, BlockState state, HeaterBlockEntity stove) {
         for(int i = 0; i < stove.inventory.getSlots(); ++i) {
             if (!stove.inventory.getStackInSlot(i).isEmpty() && level.random.nextFloat() < 0.2F) {
@@ -487,7 +462,11 @@ public class HeaterBlockEntity extends GDBlockEntity {
                 spawnParticles(getHeatLevelFromBlock(), 1);
             return;
         }
-        
+        //check if the blockstate frozen is true
+        if (getBlockState().getValue(HeaterBlock.frozen) && activeFuel == FuelType.NONE) {
+            activeFuel = FuelType.FREEZING;
+            remainingBurnTime = 1;
+        }
         if (remainingBurnTime > 0)
             remainingBurnTime--;
         

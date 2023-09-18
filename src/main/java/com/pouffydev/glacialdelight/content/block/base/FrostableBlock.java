@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import org.jetbrains.annotations.Nullable;
 
-public class FrostableBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
+public class FrostableBlock extends BaseEntityBlock {
     public static final BooleanProperty frozen = BooleanProperty.create("frozen");
     protected FrostableBlock(Properties pProperties) {
         super(pProperties);
