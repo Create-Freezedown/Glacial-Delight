@@ -1,6 +1,7 @@
 package com.pouffydev.glacialdelight.init;
 
 import com.pouffydev.glacialdelight.content.block.heater.HeaterFreezingRecipe;
+import com.pouffydev.glacialdelight.content.block.stew_pot.StewPotRecipe;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -15,6 +16,8 @@ public class GDRecipeTypes {
     public static final DeferredRegister<RecipeSerializer<?>> recipeSerializers;
     public static final RegistryObject<RecipeType<HeaterFreezingRecipe>> freezing;
     public static final RegistryObject<HeaterFreezingRecipe.Serializer> freezingSerializer;
+    public static final RegistryObject<RecipeType<StewPotRecipe>> stewing;
+    public static final RegistryObject<StewPotRecipe.Serializer> stewingSerializer;
     public static <T extends Recipe<?>> RecipeType<T> registerRecipeType(final String identifier) {
         return new RecipeType<T>() {
             public String toString() {
@@ -26,12 +29,16 @@ public class GDRecipeTypes {
         recipeSerializers = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, ID);
         
         freezingSerializer = recipeSerializers.register("heater_freezing", HeaterFreezingRecipe.Serializer::new);
+        stewingSerializer = recipeSerializers.register("stew_pot_stewing", StewPotRecipe.Serializer::new);
     }
     static {
         recipeTypes = DeferredRegister.create(ForgeRegistries.RECIPE_TYPES, ID);
         
         freezing = recipeTypes.register("heater_freezing", () -> {
             return registerRecipeType("heater_freezing");
+        });
+        stewing = recipeTypes.register("stew_pot_stewing", () -> {
+            return registerRecipeType("stew_pot_stewing");
         });
     }
 }

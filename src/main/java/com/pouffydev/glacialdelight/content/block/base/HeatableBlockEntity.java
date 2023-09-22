@@ -12,6 +12,8 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
+import static com.pouffydev.glacialdelight.content.block.heater.HeaterBlock.heatLevel;
+
 public class HeatableBlockEntity extends GDBlockEntity {
     public HeatableBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
@@ -19,6 +21,30 @@ public class HeatableBlockEntity extends GDBlockEntity {
     
     @Override
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
+    }
+    public boolean isHeated(BlockState state) {
+        HeaterLevel heaterLevel = state.getValue(heatLevel);
+        return heaterLevel.isAtLeast(HeaterLevel.SMOULDERING);
+    }
+    public boolean isFrozen(BlockState state) {
+        HeaterLevel heaterLevel = state.getValue(heatLevel);
+        return heaterLevel.equals(HeaterLevel.FREEZING);
+    }
+    public boolean smouldering(BlockState state) {
+        HeaterLevel heaterLevel = state.getValue(heatLevel);
+        return heaterLevel.equals(HeaterLevel.SMOULDERING);
+    }
+    public boolean kindled(BlockState state) {
+        HeaterLevel heaterLevel = state.getValue(heatLevel);
+        return heaterLevel.equals(HeaterLevel.KINDLED);
+    }
+    public boolean seething(BlockState state) {
+        HeaterLevel heaterLevel = state.getValue(heatLevel);
+        return heaterLevel.equals(HeaterLevel.SEETHING);
+    }
+    public boolean none(BlockState state) {
+        HeaterLevel heaterLevel = state.getValue(heatLevel);
+        return heaterLevel.equals(HeaterLevel.NONE);
     }
     public static void generalTick(Level level, BlockPos pos, BlockState state, HeatableBlockEntity be) {
         if (level.getBlockState(pos.below()).getBlock() instanceof HeaterBlock) {

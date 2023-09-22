@@ -34,8 +34,21 @@ public class SupportableFrostableContainerBlock extends HeatableBlock implements
         BlockState state = (BlockState)((BlockState)this.defaultBlockState().setValue(facing, context.getHorizontalDirection().getOpposite())).setValue(waterlogged, fluid.getType() == Fluids.WATER).setValue(heatLevel, HeaterLevel.NONE).setValue(frozen, false);
         return context.getClickedFace().equals(Direction.DOWN) ? (BlockState)state.setValue(support, CookingPotSupport.HANDLE) : (BlockState)state.setValue(support, this.getTrayState(level, pos));
     }
-    private CookingPotSupport getTrayState(LevelAccessor level, BlockPos pos) {
-        return level.getBlockState(pos.below()).is(ModTags.TRAY_HEAT_SOURCES) ? CookingPotSupport.TRAY : CookingPotSupport.NONE;
+    @Override
+    public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
+        if (state.getValue(waterlogged)) {
+            level.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        }
+        if (facing.getAxis().equals(Direction.Axis.Y) && !state.getValue(support).equals(CookingPotSupport.HANDLE)) {
+            return state.setValue(support, getTrayState(level, currentPos));
+        }
+        return state;
+    }
+    protected CookingPotSupport getTrayState(LevelAccessor level, BlockPos pos) {
+        if (level.getBlockState(pos.below()).is(ModTags.TRAY_HEAT_SOURCES)) {
+            return CookingPotSupport.TRAY;
+        }
+        return CookingPotSupport.NONE;
     }
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);

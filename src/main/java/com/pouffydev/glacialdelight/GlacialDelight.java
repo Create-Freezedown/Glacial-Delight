@@ -1,11 +1,9 @@
 package com.pouffydev.glacialdelight;
 
 import com.mojang.logging.LogUtils;
-import com.pouffydev.glacialdelight.init.GDBlockEntities;
-import com.pouffydev.glacialdelight.init.GDBlocks;
-import com.pouffydev.glacialdelight.init.GDItems;
-import com.pouffydev.glacialdelight.init.GDRecipeTypes;
+import com.pouffydev.glacialdelight.init.*;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.inventory.RecipeBookType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -39,6 +37,7 @@ public class GlacialDelight
     public static final String ID = "glacialdelight";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogManager.getLogger();
+    public static final RecipeBookType stewingRecipeType = RecipeBookType.create("STEWING");
     public static final CreativeModeTab tab = new CreativeModeTab(GlacialDelight.ID)
     {
         @Nonnull
@@ -59,6 +58,7 @@ public class GlacialDelight
         GDBlockEntities.tiles.register(modEventBus);
         GDRecipeTypes.recipeTypes.register(modEventBus);
         GDRecipeTypes.recipeSerializers.register(modEventBus);
+        GDMenuTypes.menuTypes.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

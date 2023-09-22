@@ -124,7 +124,7 @@ public abstract class SmartBlockEntity extends CachedRenderBBBlockEntity impleme
     }
     
     @Override
-    public final void load(CompoundTag tag) {
+    public void load(CompoundTag tag) {
         read(tag, false);
     }
     
@@ -135,7 +135,7 @@ public abstract class SmartBlockEntity extends CachedRenderBBBlockEntity impleme
     }
     
     @Override
-    public final void setRemoved() {
+    public void setRemoved() {
         super.setRemoved();
         if (!chunkUnloaded)
             remove();
@@ -162,7 +162,7 @@ public abstract class SmartBlockEntity extends CachedRenderBBBlockEntity impleme
     }
     
     @Override
-    public final void saveAdditional(CompoundTag tag) {
+    public void saveAdditional(CompoundTag tag) {
         write(tag, false);
     }
     

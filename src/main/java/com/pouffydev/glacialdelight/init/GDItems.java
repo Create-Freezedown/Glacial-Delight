@@ -15,9 +15,11 @@ public class GDItems {
     public static final DeferredRegister<Item> items;
     
     public static final RegistryObject<Item> heater;
+    public static final RegistryObject<Item> stewPot;
     
     static {
         items = DeferredRegister.create(ForgeRegistries.ITEMS, ID);
         heater = items.register("heater", () -> new BlockItem(GDBlocks.heater.get(), new Item.Properties().tab(GlacialDelight.tab)));
+        stewPot = items.register("stew_pot", () -> new BlockItem(GDBlocks.stewPot.get(), new Item.Properties().tab(GlacialDelight.tab)));
     }
 }
