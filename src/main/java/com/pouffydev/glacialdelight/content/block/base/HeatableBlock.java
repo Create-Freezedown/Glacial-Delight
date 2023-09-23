@@ -24,7 +24,7 @@ public class HeatableBlock extends FrostableBlock{
     }
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(heatLevel, frozen);
+        builder.add(heatLevel);
     }
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockState state = this.defaultBlockState();

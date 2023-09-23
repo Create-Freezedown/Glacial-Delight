@@ -1,3 +1,8 @@
 {
-  "glacialdelight.fuel_duration": "%s Remaining Fuel Ticks"
+  "block.glacialdelight.heater": "Heater",
+  "block.glacialdelight.stew_pot": "Stew Pot",
+
+  "glacialdelight.container.stew_pot": "Stew Pot",
+
+  "glacialdelight.jei.freezing": "Freeze-Frying"
 }

@@ -159,7 +159,8 @@ public class StewPotMenu extends RecipeBookMenu<RecipeWrapper>
     }
     
     @OnlyIn(Dist.CLIENT)
-    public boolean isHeated(BlockState state) {
+    public boolean isHeated() {
+        BlockState state = blockEntity.getLevel().getBlockState(blockEntity.getBlockPos());
         return blockEntity.isHeated(state);
     }
     

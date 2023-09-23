@@ -1,49 +1,225 @@
 {
   "variants": {
-    "facing=north,support=none": {
-      "model": "farmersdelight:block/cooking_pot"
+    "facing=north,support=none,heat_level=none": {
+      "model": "glacialdelight:block/stew_pot"
     },
-    "facing=south,support=none": {
-      "model": "farmersdelight:block/cooking_pot",
-      "y": 180
+    "facing=north,support=none,heat_level=smouldering": {
+      "model": "glacialdelight:block/stew_pot_smouldering"
     },
-    "facing=west,support=none": {
-      "model": "farmersdelight:block/cooking_pot",
-      "y": 270
+    "facing=north,support=none,heat_level=kindled": {
+      "model": "glacialdelight:block/stew_pot_kindled"
     },
-    "facing=east,support=none": {
-      "model": "farmersdelight:block/cooking_pot",
+    "facing=north,support=none,heat_level=seething": {
+      "model": "glacialdelight:block/stew_pot_seething"
+    },
+    "facing=north,support=none,heat_level=freezing": {
+      "model": "glacialdelight:block/stew_pot_freezing"
+    },
+    "facing=east,support=none,heat_level=none": {
+      "model": "glacialdelight:block/stew_pot",
       "y": 90
     },
-    "facing=north,support=tray": {
-      "model": "farmersdelight:block/cooking_pot_tray"
-    },
-    "facing=south,support=tray": {
-      "model": "farmersdelight:block/cooking_pot_tray",
-      "y": 180
-    },
-    "facing=west,support=tray": {
-      "model": "farmersdelight:block/cooking_pot_tray",
-      "y": 270
-    },
-    "facing=east,support=tray": {
-      "model": "farmersdelight:block/cooking_pot_tray",
+    "facing=east,support=none,heat_level=smouldering": {
+      "model": "glacialdelight:block/stew_pot_smouldering",
       "y": 90
     },
-    "facing=north,support=handle": {
-      "model": "farmersdelight:block/cooking_pot_handle"
+    "facing=east,support=none,heat_level=kindled": {
+      "model": "glacialdelight:block/stew_pot_kindled",
+      "y": 90
     },
-    "facing=south,support=handle": {
-      "model": "farmersdelight:block/cooking_pot_handle",
+    "facing=east,support=none,heat_level=seething": {
+      "model": "glacialdelight:block/stew_pot_seething",
+      "y": 90
+    },
+    "facing=east,support=none,heat_level=freezing": {
+      "model": "glacialdelight:block/stew_pot_freezing",
+      "y": 90
+    },
+    "facing=south,support=none,heat_level=none": {
+      "model": "glacialdelight:block/stew_pot",
       "y": 180
     },
-    "facing=west,support=handle": {
-      "model": "farmersdelight:block/cooking_pot_handle",
+    "facing=south,support=none,heat_level=smouldering": {
+      "model": "glacialdelight:block/stew_pot_smouldering",
+      "y": 180
+    },
+    "facing=south,support=none,heat_level=kindled": {
+      "model": "glacialdelight:block/stew_pot_kindled",
+      "y": 180
+    },
+    "facing=south,support=none,heat_level=seething": {
+      "model": "glacialdelight:block/stew_pot_seething",
+      "y": 180
+    },
+    "facing=south,support=none,heat_level=freezing": {
+      "model": "glacialdelight:block/stew_pot_freezing",
+      "y": 180
+    },
+    "facing=west,support=none,heat_level=none": {
+      "model": "glacialdelight:block/stew_pot",
       "y": 270
     },
-    "facing=east,support=handle": {
-      "model": "farmersdelight:block/cooking_pot_handle",
+    "facing=west,support=none,heat_level=smouldering": {
+      "model": "glacialdelight:block/stew_pot_smouldering",
+      "y": 270
+    },
+    "facing=west,support=none,heat_level=kindled": {
+      "model": "glacialdelight:block/stew_pot_kindled",
+      "y": 270
+    },
+    "facing=west,support=none,heat_level=seething": {
+      "model": "glacialdelight:block/stew_pot_seething",
+      "y": 270
+    },
+    "facing=west,support=none,heat_level=freezing": {
+      "model": "glacialdelight:block/stew_pot_freezing",
+      "y": 270
+    },
+    "facing=north,support=tray,heat_level=none": {
+      "model": "glacialdelight:block/stew_pot_tray"
+    },
+    "facing=north,support=tray,heat_level=smouldering": {
+      "model": "glacialdelight:block/stew_pot_tray_smouldering"
+    },
+    "facing=north,support=tray,heat_level=kindled": {
+      "model": "glacialdelight:block/stew_pot_tray_kindled"
+    },
+    "facing=north,support=tray,heat_level=seething": {
+      "model": "glacialdelight:block/stew_pot_tray_seething"
+    },
+    "facing=north,support=tray,heat_level=freezing": {
+      "model": "glacialdelight:block/stew_pot_tray_freezing"
+    },
+    "facing=east,support=tray,heat_level=none": {
+      "model": "glacialdelight:block/stew_pot_tray",
       "y": 90
+    },
+    "facing=east,support=tray,heat_level=smouldering": {
+      "model": "glacialdelight:block/stew_pot_tray_smouldering",
+      "y": 90
+    },
+    "facing=east,support=tray,heat_level=kindled": {
+      "model": "glacialdelight:block/stew_pot_tray_kindled",
+      "y": 90
+    },
+    "facing=east,support=tray,heat_level=seething": {
+      "model": "glacialdelight:block/stew_pot_tray_seething",
+      "y": 90
+    },
+    "facing=east,support=tray,heat_level=freezing": {
+      "model": "glacialdelight:block/stew_pot_tray_freezing",
+      "y": 90
+    },
+    "facing=south,support=tray,heat_level=none": {
+      "model": "glacialdelight:block/stew_pot_tray",
+      "y": 180
+    },
+    "facing=south,support=tray,heat_level=smouldering": {
+      "model": "glacialdelight:block/stew_pot_tray_smouldering",
+      "y": 180
+    },
+    "facing=south,support=tray,heat_level=kindled": {
+      "model": "glacialdelight:block/stew_pot_tray_kindled",
+      "y": 180
+    },
+    "facing=south,support=tray,heat_level=seething": {
+      "model": "glacialdelight:block/stew_pot_tray_seething",
+      "y": 180
+    },
+    "facing=south,support=tray,heat_level=freezing": {
+      "model": "glacialdelight:block/stew_pot_tray_freezing",
+      "y": 180
+    },
+    "facing=west,support=tray,heat_level=none": {
+      "model": "glacialdelight:block/stew_pot_tray",
+      "y": 270
+    },
+    "facing=west,support=tray,heat_level=smouldering": {
+      "model": "glacialdelight:block/stew_pot_tray_smouldering",
+      "y": 270
+    },
+    "facing=west,support=tray,heat_level=kindled": {
+      "model": "glacialdelight:block/stew_pot_tray_kindled",
+      "y": 270
+    },
+    "facing=west,support=tray,heat_level=seething": {
+      "model": "glacialdelight:block/stew_pot_tray_seething",
+      "y": 270
+    },
+    "facing=west,support=tray,heat_level=freezing": {
+      "model": "glacialdelight:block/stew_pot_tray_freezing",
+      "y": 270
+    },
+    "facing=north,support=handle,heat_level=none": {
+      "model": "glacialdelight:block/stew_pot_handle"
+    },
+    "facing=north,support=handle,heat_level=smouldering": {
+      "model": "glacialdelight:block/stew_pot_handle_smouldering"
+    },
+    "facing=north,support=handle,heat_level=kindled": {
+      "model": "glacialdelight:block/stew_pot_handle_kindled"
+    },
+    "facing=north,support=handle,heat_level=seething": {
+      "model": "glacialdelight:block/stew_pot_handle_seething"
+    },
+    "facing=north,support=handle,heat_level=freezing": {
+      "model": "glacialdelight:block/stew_pot_handle_freezing"
+    },
+    "facing=east,support=handle,heat_level=none": {
+      "model": "glacialdelight:block/stew_pot_handle",
+      "y": 90
+    },
+    "facing=east,support=handle,heat_level=smouldering": {
+      "model": "glacialdelight:block/stew_pot_handle_smouldering",
+      "y": 90
+    },
+    "facing=east,support=handle,heat_level=kindled": {
+      "model": "glacialdelight:block/stew_pot_handle_kindled",
+      "y": 90
+    },
+    "facing=east,support=handle,heat_level=seething": {
+      "model": "glacialdelight:block/stew_pot_handle_seething",
+      "y": 90
+    },
+    "facing=east,support=handle,heat_level=freezing": {
+      "model": "glacialdelight:block/stew_pot_handle_freezing",
+      "y": 90
+    },
+    "facing=south,support=handle,heat_level=none": {
+      "model": "glacialdelight:block/stew_pot_handle",
+      "y": 180
+    },
+    "facing=south,support=handle,heat_level=smouldering": {
+      "model": "glacialdelight:block/stew_pot_handle_smouldering",
+      "y": 180
+    },
+    "facing=south,support=handle,heat_level=kindled": {
+      "model": "glacialdelight:block/stew_pot_handle_kindled",
+      "y": 180
+    },
+    "facing=south,support=handle,heat_level=seething": {
+      "model": "glacialdelight:block/stew_pot_handle_seething",
+      "y": 180
+    },
+    "facing=west,support=handle,heat_level=none": {
+      "model": "glacialdelight:block/stew_pot_handle",
+      "y": 270
+    },
+    "facing=west,support=handle,heat_level=smouldering": {
+      "model": "glacialdelight:block/stew_pot_handle_smouldering",
+      "y": 270
+    },
+    "facing=west,support=handle,heat_level=kindled": {
+      "model": "glacialdelight:block/stew_pot_handle_kindled",
+      "y": 270
+    },
+    "facing=west,support=handle,heat_level=seething": {
+      "model": "glacialdelight:block/stew_pot_handle_seething",
+      "y": 270
+    },
+    "facing=west,support=handle,heat_level=freezing": {
+      "model": "glacialdelight:block/stew_pot_handle_freezing",
+      "y": 270
     }
   }
 }

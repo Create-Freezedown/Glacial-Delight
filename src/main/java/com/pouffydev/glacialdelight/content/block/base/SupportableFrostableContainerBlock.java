@@ -52,7 +52,7 @@ public class SupportableFrostableContainerBlock extends HeatableBlock implements
     }
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(facing, support, waterlogged, frozen, heatLevel);
+        builder.add(facing, support, waterlogged);
     }
     static {
         facing = BlockStateProperties.HORIZONTAL_FACING;

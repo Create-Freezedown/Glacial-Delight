@@ -29,7 +29,7 @@ public class GDRecipeTypes {
         recipeSerializers = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, ID);
         
         freezingSerializer = recipeSerializers.register("heater_freezing", HeaterFreezingRecipe.Serializer::new);
-        stewingSerializer = recipeSerializers.register("stew_pot_stewing", StewPotRecipe.Serializer::new);
+        stewingSerializer = recipeSerializers.register("stewing", StewPotRecipe.Serializer::new);
     }
     static {
         recipeTypes = DeferredRegister.create(ForgeRegistries.RECIPE_TYPES, ID);
@@ -37,8 +37,8 @@ public class GDRecipeTypes {
         freezing = recipeTypes.register("heater_freezing", () -> {
             return registerRecipeType("heater_freezing");
         });
-        stewing = recipeTypes.register("stew_pot_stewing", () -> {
-            return registerRecipeType("stew_pot_stewing");
+        stewing = recipeTypes.register("stewing", () -> {
+            return registerRecipeType("stewing");
         });
     }
 }

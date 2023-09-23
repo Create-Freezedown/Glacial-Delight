@@ -1,6 +1,7 @@
 package com.pouffydev.glacialdelight;
 
 import com.mojang.logging.LogUtils;
+import com.pouffydev.glacialdelight.foundation.client.GDClientInit;
 import com.pouffydev.glacialdelight.init.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.inventory.RecipeBookType;
@@ -26,6 +27,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import vectorwing.farmersdelight.client.ClientSetup;
 
 import javax.annotation.Nonnull;
 
@@ -52,7 +54,7 @@ public class GlacialDelight
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-
+        modEventBus.addListener(GDClientInit::init);
         GDBlocks.blocks.register(modEventBus);
         GDItems.items.register(modEventBus);
         GDBlockEntities.tiles.register(modEventBus);

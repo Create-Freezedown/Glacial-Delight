@@ -476,7 +476,7 @@ public class StewPotBlockEntity extends HeatableBlockEntity implements MenuProvi
     
     @Override
     public Component getName() {
-        return customName != null ? customName : (Component) Lang.translate("container.stew_pot");
+        return customName != null ? customName : (Component) Lang.translateDirect("container.stew_pot");
     }
     
     @Override
