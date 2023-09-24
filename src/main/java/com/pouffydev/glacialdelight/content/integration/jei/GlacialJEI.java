@@ -2,6 +2,7 @@ package com.pouffydev.glacialdelight.content.integration.jei;
 
 import com.pouffydev.glacialdelight.GlacialDelight;
 import com.pouffydev.glacialdelight.content.integration.jei.category.FreezingCategory;
+import com.pouffydev.glacialdelight.content.integration.jei.category.StewingCategory;
 import com.pouffydev.glacialdelight.init.GDItems;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -24,13 +25,16 @@ public class GlacialJEI implements IModPlugin {
     }
     public void registerCategories(IRecipeCategoryRegistration registry) {
         registry.addRecipeCategories(new FreezingCategory(registry.getJeiHelpers().getGuiHelper()));
+        registry.addRecipeCategories(new StewingCategory(registry.getJeiHelpers().getGuiHelper()));
     }
     public void registerRecipes(IRecipeRegistration registration) {
         GDJEIRecipes modRecipes = new GDJEIRecipes();
         registration.addRecipes(GDJEIRecipeTypes.freezing, modRecipes.getFreezingRecipes());
+        registration.addRecipes(GDJEIRecipeTypes.stewing, modRecipes.getStewingRecipes());
     }
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(new ItemStack(GDItems.heater.get()), RecipeTypes.CAMPFIRE_COOKING, RecipeTypes.FUELING, GDJEIRecipeTypes.freezing);
+        registration.addRecipeCatalyst(new ItemStack(GDItems.stewPot.get()), GDJEIRecipeTypes.stewing);
     }
     public ResourceLocation getPluginUid() {
         return ID;

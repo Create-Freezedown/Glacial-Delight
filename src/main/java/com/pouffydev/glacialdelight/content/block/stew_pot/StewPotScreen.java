@@ -2,6 +2,9 @@ package com.pouffydev.glacialdelight.content.block.stew_pot;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.pouffydev.glacialdelight.GlacialDelight;
+import com.pouffydev.glacialdelight.content.block.util.HeaterLevel;
+import com.pouffydev.glacialdelight.foundation.util.lang.Lang;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -26,8 +29,8 @@ import java.util.List;
 public class StewPotScreen extends AbstractContainerScreen<StewPotMenu> implements RecipeUpdateListener
 {
     private static final ResourceLocation RECIPE_BUTTON_LOCATION = new ResourceLocation("textures/gui/recipe_button.png");
-    private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(FarmersDelight.MODID, "textures/gui/cooking_pot.png");
-    private static final Rectangle HEAT_ICON = new Rectangle(47, 55, 17, 15);
+    private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(GlacialDelight.ID, "textures/gui/stew_pot.png");
+    private static final Rectangle heatIcon = new Rectangle(47, 55, 17, 15);
     private static final Rectangle PROGRESS_ARROW = new Rectangle(89, 25, 0, 17);
     
     private final StewPotRecipeBookComponent recipeBookComponent = new StewPotRecipeBookComponent();
@@ -84,10 +87,10 @@ public class StewPotScreen extends AbstractContainerScreen<StewPotMenu> implemen
     }
     
     private void renderHeatIndicatorTooltip(PoseStack ms, int mouseX, int mouseY) {
-        if (this.isHovering(HEAT_ICON.x, HEAT_ICON.y, HEAT_ICON.width, HEAT_ICON.height, mouseX, mouseY)) {
+        if (this.isHovering(heatIcon.x, heatIcon.y, heatIcon.width, heatIcon.height, mouseX, mouseY)) {
             List<Component> tooltip = new ArrayList<>();
-            String key = "container.cooking_pot." + (this.menu.isHeated() ? "heated" : "not_heated");
-            tooltip.add(TextUtils.getTranslation(key, menu));
+            String key = "container.cooking_pot." + this.menu.getHeatLevel().getSerializedName();
+            tooltip.add(Lang.translateDirect(key, menu));
             this.renderComponentTooltip(ms, tooltip, mouseX, mouseY);
         }
     }
@@ -129,8 +132,17 @@ public class StewPotScreen extends AbstractContainerScreen<StewPotMenu> implemen
         this.blit(ms, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight);
         
         // Render heat icon
-        if (this.menu.isHeated()) {
-            this.blit(ms, this.leftPos + HEAT_ICON.x, this.topPos + HEAT_ICON.y, 176, 0, HEAT_ICON.width, HEAT_ICON.height);
+        if (this.menu.getHeatLevel() == HeaterLevel.SMOULDERING) {
+            this.blit(ms, this.leftPos + heatIcon.x, this.topPos + heatIcon.y, 176, 0, heatIcon.width, heatIcon.height);
+        }
+        if (this.menu.getHeatLevel() == HeaterLevel.KINDLED) {
+            this.blit(ms, this.leftPos + heatIcon.x, this.topPos + heatIcon.y, 193, 0, heatIcon.width, heatIcon.height);
+        }
+        if (this.menu.getHeatLevel() == HeaterLevel.SEETHING) {
+            this.blit(ms, this.leftPos + heatIcon.x, this.topPos + heatIcon.y, 210, 0, heatIcon.width, heatIcon.height);
+        }
+        if (this.menu.getHeatLevel() == HeaterLevel.FREEZING) {
+            this.blit(ms, this.leftPos + heatIcon.x, this.topPos + heatIcon.y, 227, 0, heatIcon.width, heatIcon.height);
         }
         
         // Render progress arrow

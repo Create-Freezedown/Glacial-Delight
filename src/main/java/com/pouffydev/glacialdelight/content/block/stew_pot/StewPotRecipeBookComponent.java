@@ -29,7 +29,7 @@ public class StewPotRecipeBookComponent extends RecipeBookComponent
     @Override
     @Nonnull
     protected Component getRecipeFilterName() {
-        return (Component) Lang.translate("container.recipe_book.stewable");
+        return Lang.translateDirect("container.recipe_book.stewable");
     }
     
     @Override

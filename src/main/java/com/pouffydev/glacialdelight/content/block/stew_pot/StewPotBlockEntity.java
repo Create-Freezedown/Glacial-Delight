@@ -178,17 +178,25 @@ public class StewPotBlockEntity extends HeatableBlockEntity implements MenuProvi
     }
     public static void potTick(Level level, BlockPos pos, BlockState state, StewPotBlockEntity cookingPot) {
         generalTick(level, pos, state, cookingPot);
-        if (cookingPot.isHeated(state)) {
+        if (cookingPot.isHeated(level, pos)) {
             cookingTick(level, pos, state, cookingPot);
-        } else if (cookingPot.isFrozen(state)) {
+        } else if (cookingPot.isFrozen(level, pos)) {
             cookingPot.cookTime = 0;
         }
     }
     
     public static void cookingTick(Level level, BlockPos pos, BlockState state, StewPotBlockEntity cookingPot) {
-        boolean isHeated = cookingPot.isHeated(state);
+        boolean isHeated = cookingPot.isHeated(level, pos);
+        boolean isSeething = cookingPot.seething(level, pos);
         boolean didInventoryChange = false;
-        
+        if (isSeething && cookingPot.hasInput()) {
+            Optional<SeethingStewPotRecipe> recipe = cookingPot.getSeethingMatchingRecipe(new RecipeWrapper(cookingPot.inventory));
+            if (recipe.isPresent() && cookingPot.canCook(recipe.get())) {
+                didInventoryChange = cookingPot.processCooking(recipe.get(), cookingPot);
+            } else {
+                cookingPot.cookTime = 0;
+            }
+        } else
         if (isHeated && cookingPot.hasInput()) {
             Optional<StewPotRecipe> recipe = cookingPot.getMatchingRecipe(new RecipeWrapper(cookingPot.inventory));
             if (recipe.isPresent() && cookingPot.canCook(recipe.get())) {
@@ -197,11 +205,11 @@ public class StewPotBlockEntity extends HeatableBlockEntity implements MenuProvi
                 cookingPot.cookTime = 0;
             }
         } else if (cookingPot.cookTime > 0) {
-            if (cookingPot.smouldering(state))
+            if (cookingPot.smouldering(level, pos))
                 cookingPot.cookTime = Mth.clamp(cookingPot.cookTime - 1, 0, cookingPot.cookTimeTotal);
-            else if (cookingPot.kindled(state))
+            else if (cookingPot.kindled(level, pos))
                 cookingPot.cookTime = Mth.clamp(cookingPot.cookTime - 2, 0, cookingPot.cookTimeTotal);
-            else if (cookingPot.seething(state))
+            else if (cookingPot.seething(level, pos))
                 cookingPot.cookTime = Mth.clamp(cookingPot.cookTime - 4, 0, cookingPot.cookTimeTotal);
         }
         
@@ -221,7 +229,7 @@ public class StewPotBlockEntity extends HeatableBlockEntity implements MenuProvi
         }
     }
     public static void animationTick(Level level, BlockPos pos, BlockState state, StewPotBlockEntity stewPot) {
-        if (stewPot.isHeated(state)) {
+        if (stewPot.isHeated(level, pos)) {
             RandomSource random = level.random;
             if (random.nextFloat() < 0.2F) {
                 double x = (double) pos.getX() + 0.5D + (random.nextDouble() * 0.6D - 0.3D);
@@ -236,7 +244,7 @@ public class StewPotBlockEntity extends HeatableBlockEntity implements MenuProvi
                 double motionY = random.nextBoolean() ? 0.015D : 0.005D;
                 level.addParticle(ModParticleTypes.STEAM.get(), x, y, z, 0.0D, motionY, 0.0D);
             }
-        } else if (stewPot.isFrozen(state)) {
+        } else if (stewPot.isFrozen(level, pos)) {
             RandomSource random = level.random;
             if (random.nextFloat() < 0.2F) {
                 double x = (double) pos.getX() + 0.5D + (random.nextDouble() * 0.6D - 0.3D);
@@ -279,7 +287,38 @@ public class StewPotBlockEntity extends HeatableBlockEntity implements MenuProvi
         checkNewRecipe = false;
         return Optional.empty();
     }
-    
+    private Optional<SeethingStewPotRecipe> getSeethingMatchingRecipe(RecipeWrapper inventoryWrapper) {
+        if (level == null) return Optional.empty();
+        
+        if (lastRecipeID != null) {
+            Recipe<RecipeWrapper> recipe = ((RecipeManagerAccessor) level.getRecipeManager())
+                    .getRecipeMap(GDRecipeTypes.seethingStewing.get())
+                    .get(lastRecipeID);
+            if (recipe instanceof StewPotRecipe) {
+                if (recipe.matches(inventoryWrapper, level)) {
+                    return Optional.of((SeethingStewPotRecipe) recipe);
+                }
+                if (recipe.getResultItem().sameItem(getMeal())) {
+                    return Optional.empty();
+                }
+            }
+        }
+        
+        if (checkNewRecipe) {
+            Optional<SeethingStewPotRecipe> recipe = level.getRecipeManager().getRecipeFor(GDRecipeTypes.seethingStewing.get(), inventoryWrapper, level);
+            if (recipe.isPresent()) {
+                ResourceLocation newRecipeID = recipe.get().getId();
+                if (lastRecipeID != null && !lastRecipeID.equals(newRecipeID)) {
+                    cookTime = 0;
+                }
+                lastRecipeID = newRecipeID;
+                return recipe;
+            }
+        }
+        
+        checkNewRecipe = false;
+        return Optional.empty();
+    }
     public ItemStack getContainer() {
         ItemStack mealStack = getMeal();
         if (!mealStack.isEmpty() && !mealContainerStack.isEmpty()) {

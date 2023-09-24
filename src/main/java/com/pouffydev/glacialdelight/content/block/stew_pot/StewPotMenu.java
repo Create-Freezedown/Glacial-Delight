@@ -1,8 +1,11 @@
 package com.pouffydev.glacialdelight.content.block.stew_pot;
 
 import com.mojang.datafixers.util.Pair;
+import com.pouffydev.glacialdelight.GlacialDelight;
+import com.pouffydev.glacialdelight.content.block.util.HeaterLevel;
 import com.pouffydev.glacialdelight.init.GDBlocks;
 import com.pouffydev.glacialdelight.init.GDMenuTypes;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -160,8 +163,13 @@ public class StewPotMenu extends RecipeBookMenu<RecipeWrapper>
     
     @OnlyIn(Dist.CLIENT)
     public boolean isHeated() {
-        BlockState state = blockEntity.getLevel().getBlockState(blockEntity.getBlockPos());
-        return blockEntity.isHeated(state);
+        BlockPos pos = this.blockEntity.getBlockPos();
+        return blockEntity.isHeated(level, pos);
+    }
+    @OnlyIn(Dist.CLIENT)
+    public HeaterLevel getHeatLevel() {
+        BlockPos pos = this.blockEntity.getBlockPos();
+        return blockEntity.getHeatLevel(level, pos);
     }
     
     @Override
@@ -205,7 +213,7 @@ public class StewPotMenu extends RecipeBookMenu<RecipeWrapper>
     
     @Override
     public RecipeBookType getRecipeBookType() {
-        return FarmersDelight.RECIPE_TYPE_COOKING;
+        return GlacialDelight.stewingRecipeType;
     }
     
     @Override

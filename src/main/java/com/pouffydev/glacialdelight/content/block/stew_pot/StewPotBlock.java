@@ -4,6 +4,9 @@ import com.pouffydev.glacialdelight.content.block.base.SupportableFrostableConta
 import com.pouffydev.glacialdelight.content.block.util.HeaterLevel;
 import com.pouffydev.glacialdelight.init.GDBlockEntities;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.color.block.BlockColor;
+import net.minecraft.client.color.block.BlockColors;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -20,6 +23,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -43,7 +47,7 @@ import vectorwing.farmersdelight.common.utility.TextUtils;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class StewPotBlock extends SupportableFrostableContainerBlock {
+public class StewPotBlock extends SupportableFrostableContainerBlock implements BlockColor {
     protected static final VoxelShape shape = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 10.0D, 14.0D);
     protected static final VoxelShape shapeWithTray = Shapes.or(shape, Block.box(0.0D, -1.0D, 0.0D, 16.0D, 0.0D, 16.0D));
     public StewPotBlock(Properties pProperties) {
@@ -53,7 +57,7 @@ public class StewPotBlock extends SupportableFrostableContainerBlock {
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         BlockEntity tileEntity = level.getBlockEntity(pos);
-        if (tileEntity instanceof StewPotBlockEntity stewPotEntity && stewPotEntity.isHeated(state)) {
+        if (tileEntity instanceof StewPotBlockEntity stewPotEntity && stewPotEntity.isHeated(level, pos)) {
             SoundEvent boilSound = !stewPotEntity.getMeal().isEmpty()
                     ? ModSounds.BLOCK_COOKING_POT_BOIL_SOUP.get()
                     : ModSounds.BLOCK_COOKING_POT_BOIL.get();
@@ -175,4 +179,8 @@ public class StewPotBlock extends SupportableFrostableContainerBlock {
         return createTickerHelper(blockEntity, GDBlockEntities.stewPot.get(), StewPotBlockEntity::potTick);
     }
     
+    @Override
+    public int getColor(BlockState pState, @Nullable BlockAndTintGetter pLevel, @Nullable BlockPos pPos, int pTintIndex) {
+        return BlockColors.createDefault().getColor(pState, pLevel, pPos, BiomeColors.getAverageWaterColor(pLevel, pPos));
+    }
 }

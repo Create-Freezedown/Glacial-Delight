@@ -1,9 +1,10 @@
 package com.pouffydev.glacialdelight.content.block.stew_pot;
 
 public enum StewPotRecipeBookTab {
-    MEALS("meals"),
-    DRINKS("drinks"),
-    MISC("misc");
+    stews("stews"),
+    soups("soups"),
+    drinks("drinks"),
+    misc("misc");
     
     public final String name;
     

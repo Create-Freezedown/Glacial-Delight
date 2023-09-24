@@ -1,11 +1,13 @@
 package com.pouffydev.glacialdelight.content.integration.jei;
 
 import com.pouffydev.glacialdelight.content.block.heater.HeaterFreezingRecipe;
+import com.pouffydev.glacialdelight.content.block.stew_pot.StewPotRecipe;
 import com.pouffydev.glacialdelight.init.GDRecipeTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.item.crafting.RecipeManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GDJEIRecipes {
@@ -23,5 +25,11 @@ public class GDJEIRecipes {
     
     public List<HeaterFreezingRecipe> getFreezingRecipes() {
         return this.recipeManager.getAllRecipesFor(GDRecipeTypes.freezing.get()).stream().toList();
+    }
+    public List<StewPotRecipe> getStewingRecipes() {
+        ArrayList<StewPotRecipe> stewPotRecipes = new ArrayList<>();
+        stewPotRecipes.addAll(this.recipeManager.getAllRecipesFor(GDRecipeTypes.stewing.get()));
+        stewPotRecipes.addAll(this.recipeManager.getAllRecipesFor(GDRecipeTypes.seethingStewing.get()));
+        return stewPotRecipes.stream().toList();
     }
 }
