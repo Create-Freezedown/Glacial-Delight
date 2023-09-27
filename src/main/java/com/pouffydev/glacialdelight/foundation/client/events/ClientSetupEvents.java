@@ -33,6 +33,7 @@ public class ClientSetupEvents {
     public static void onRegisterRecipeBookCategories(RegisterRecipeBookCategoriesEvent event)
     {
         GDRecipeCategories.stewingInit(event);
+        //GDRecipeCategories.steamingInit(event);
     }
     @SubscribeEvent
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {

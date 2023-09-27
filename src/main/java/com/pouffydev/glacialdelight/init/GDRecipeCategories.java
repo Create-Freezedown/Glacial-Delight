@@ -3,6 +3,8 @@ package com.pouffydev.glacialdelight.init;
 import com.google.common.base.Suppliers;
 import com.google.common.collect.ImmutableList;
 import com.pouffydev.glacialdelight.GlacialDelight;
+import com.pouffydev.glacialdelight.content.block.steamer.SteamingRecipe;
+import com.pouffydev.glacialdelight.content.block.steamer.SteamingRecipeBookTab;
 import com.pouffydev.glacialdelight.content.block.stew_pot.StewPotRecipe;
 import com.pouffydev.glacialdelight.content.block.stew_pot.StewPotRecipeBookTab;
 import net.minecraft.client.RecipeBookCategories;
@@ -45,4 +47,28 @@ public class GDRecipeCategories {
             return STEWING_MISC.get();
         });
     }
+    public static final Supplier<RecipeBookCategories> STEAMING_SEARCH = Suppliers.memoize(() -> RecipeBookCategories.create("STEAMING_SEARCH", new ItemStack(Items.COMPASS)));
+    public static final Supplier<RecipeBookCategories> STEAMING_VEGETABLES = Suppliers.memoize(() -> RecipeBookCategories.create("STEAMING_VEGETABLES", new ItemStack(ModItems.CABBAGE_LEAF.get())));
+    public static final Supplier<RecipeBookCategories> STEAMING_MEATS = Suppliers.memoize(() -> RecipeBookCategories.create("STEAMING_MEATS", new ItemStack(ModItems.MUTTON_CHOPS.get())));
+    public static final Supplier<RecipeBookCategories> STEAMING_BUNS = Suppliers.memoize(() -> RecipeBookCategories.create("STEAMING_BUNS", new ItemStack(Items.BREAD)));
+    public static final Supplier<RecipeBookCategories> STEAMING_MISC = Suppliers.memoize(() -> RecipeBookCategories.create("STEAMING_MISC", new ItemStack(Items.BREAD), new ItemStack(ModItems.CABBAGE_LEAF.get())));
+    //public static void steamingInit(RegisterRecipeBookCategoriesEvent event) {
+    //    event.registerBookCategories(GlacialDelight.steamingRecipeType, ImmutableList.of(STEAMING_SEARCH.get(), STEAMING_VEGETABLES.get(), STEAMING_MEATS.get(), STEAMING_BUNS.get(), STEAMING_MISC.get()));
+    //    event.registerAggregateCategory(STEAMING_SEARCH.get(), ImmutableList.of(STEAMING_VEGETABLES.get(), STEAMING_MEATS.get(), STEAMING_BUNS.get(), STEAMING_MISC.get()));
+    //    event.registerRecipeCategoryFinder(GDRecipeTypes.steaming.get(), recipe ->
+    //    {
+    //        if (recipe instanceof SteamingRecipe steamingRecipe) {
+    //            SteamingRecipeBookTab tab = steamingRecipe.getRecipeBookTab();
+    //            if (tab != null) {
+    //                return switch (tab) {
+    //                    case vegetables -> STEAMING_VEGETABLES.get();
+    //                    case meats -> STEAMING_MEATS.get();
+    //                    case buns -> STEAMING_BUNS.get();
+    //                    case misc -> STEWING_MISC.get();
+    //                };
+    //            }
+    //        }
+    //        return STEAMING_MISC.get();
+    //    });
+    //}
 }

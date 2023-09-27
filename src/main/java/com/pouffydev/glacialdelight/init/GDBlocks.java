@@ -1,6 +1,7 @@
 package com.pouffydev.glacialdelight.init;
 
 import com.pouffydev.glacialdelight.content.block.heater.HeaterBlock;
+import com.pouffydev.glacialdelight.content.block.steamer.SteamerBlock;
 import com.pouffydev.glacialdelight.content.block.stew_pot.StewPotBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -24,6 +25,7 @@ public class GDBlocks {
     public static final DeferredRegister<Block> blocks;
     public static final RegistryObject<HeaterBlock> heater;
     public static final RegistryObject<StewPotBlock> stewPot;
+    public static final RegistryObject<SteamerBlock> steamer;
     
     private static ToIntFunction<BlockState> litBlockEmission(int lightValue) {
         return (state) -> {
@@ -38,6 +40,7 @@ public class GDBlocks {
         blocks = DeferredRegister.create(ForgeRegistries.BLOCKS, ID);
         heater = blocks.register("heater", () -> new HeaterBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL).lightLevel(heaterEmission())));
         stewPot = blocks.register("stew_pot", () -> new StewPotBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL)));
+        steamer = blocks.register("steamer", () -> new SteamerBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL)));
     }
     
 }

@@ -1,8 +1,20 @@
 {
   "block.glacialdelight.heater": "Heater",
   "block.glacialdelight.stew_pot": "Stew Pot",
+  "block.glacialdelight.steamer": "Steamer",
+
+  "glacialdelight.container.steamer.no_water": "No Water",
+  "glacialdelight.container.steamer.no_steam": "No Steam",
+  "glacialdelight.container.steamer.water_level": "Water Level: %s mB",
+  "glacialdelight.container.steamer.steam_level": "Steam Level: %s mB",
+  "glacialdelight.container.cooking_pot.freezing": "Freezing",
+  "glacialdelight.container.cooking_pot.smouldering": "Smouldering",
+  "glacialdelight.container.cooking_pot.kindled": "Kindled",
+  "glacialdelight.container.cooking_pot.seething": "Seething",
+
 
   "glacialdelight.container.stew_pot": "Stew Pot",
+  "glacialdelight.container.steamer": "Steamer",
 
   "glacialdelight.jei.freezing": "Freeze-Frying"
 }

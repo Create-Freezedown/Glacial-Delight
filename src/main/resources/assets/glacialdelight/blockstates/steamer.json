@@ -1,0 +1,225 @@
+{
+  "variants": {
+    "facing=north,support=none,heat_level=none": {
+      "model": "glacialdelight:block/steamer"
+    },
+    "facing=north,support=none,heat_level=smouldering": {
+      "model": "glacialdelight:block/steamer_smouldering"
+    },
+    "facing=north,support=none,heat_level=kindled": {
+      "model": "glacialdelight:block/steamer_kindled"
+    },
+    "facing=north,support=none,heat_level=seething": {
+      "model": "glacialdelight:block/steamer_seething"
+    },
+    "facing=north,support=none,heat_level=freezing": {
+      "model": "glacialdelight:block/steamer_freezing"
+    },
+    "facing=east,support=none,heat_level=none": {
+      "model": "glacialdelight:block/steamer",
+      "y": 90
+    },
+    "facing=east,support=none,heat_level=smouldering": {
+      "model": "glacialdelight:block/steamer_smouldering",
+      "y": 90
+    },
+    "facing=east,support=none,heat_level=kindled": {
+      "model": "glacialdelight:block/steamer_kindled",
+      "y": 90
+    },
+    "facing=east,support=none,heat_level=seething": {
+      "model": "glacialdelight:block/steamer_seething",
+      "y": 90
+    },
+    "facing=east,support=none,heat_level=freezing": {
+      "model": "glacialdelight:block/steamer_freezing",
+      "y": 90
+    },
+    "facing=south,support=none,heat_level=none": {
+      "model": "glacialdelight:block/steamer",
+      "y": 180
+    },
+    "facing=south,support=none,heat_level=smouldering": {
+      "model": "glacialdelight:block/steamer_smouldering",
+      "y": 180
+    },
+    "facing=south,support=none,heat_level=kindled": {
+      "model": "glacialdelight:block/steamer_kindled",
+      "y": 180
+    },
+    "facing=south,support=none,heat_level=seething": {
+      "model": "glacialdelight:block/steamer_seething",
+      "y": 180
+    },
+    "facing=south,support=none,heat_level=freezing": {
+      "model": "glacialdelight:block/steamer_freezing",
+      "y": 180
+    },
+    "facing=west,support=none,heat_level=none": {
+      "model": "glacialdelight:block/steamer",
+      "y": 270
+    },
+    "facing=west,support=none,heat_level=smouldering": {
+      "model": "glacialdelight:block/steamer_smouldering",
+      "y": 270
+    },
+    "facing=west,support=none,heat_level=kindled": {
+      "model": "glacialdelight:block/steamer_kindled",
+      "y": 270
+    },
+    "facing=west,support=none,heat_level=seething": {
+      "model": "glacialdelight:block/steamer_seething",
+      "y": 270
+    },
+    "facing=west,support=none,heat_level=freezing": {
+      "model": "glacialdelight:block/steamer_freezing",
+      "y": 270
+    },
+    "facing=north,support=tray,heat_level=none": {
+      "model": "glacialdelight:block/steamer_tray"
+    },
+    "facing=north,support=tray,heat_level=smouldering": {
+      "model": "glacialdelight:block/steamer_tray_smouldering"
+    },
+    "facing=north,support=tray,heat_level=kindled": {
+      "model": "glacialdelight:block/steamer_tray_kindled"
+    },
+    "facing=north,support=tray,heat_level=seething": {
+      "model": "glacialdelight:block/steamer_tray_seething"
+    },
+    "facing=north,support=tray,heat_level=freezing": {
+      "model": "glacialdelight:block/steamer_tray_freezing"
+    },
+    "facing=east,support=tray,heat_level=none": {
+      "model": "glacialdelight:block/steamer_tray",
+      "y": 90
+    },
+    "facing=east,support=tray,heat_level=smouldering": {
+      "model": "glacialdelight:block/steamer_tray_smouldering",
+      "y": 90
+    },
+    "facing=east,support=tray,heat_level=kindled": {
+      "model": "glacialdelight:block/steamer_tray_kindled",
+      "y": 90
+    },
+    "facing=east,support=tray,heat_level=seething": {
+      "model": "glacialdelight:block/steamer_tray_seething",
+      "y": 90
+    },
+    "facing=east,support=tray,heat_level=freezing": {
+      "model": "glacialdelight:block/steamer_tray_freezing",
+      "y": 90
+    },
+    "facing=south,support=tray,heat_level=none": {
+      "model": "glacialdelight:block/steamer_tray",
+      "y": 180
+    },
+    "facing=south,support=tray,heat_level=smouldering": {
+      "model": "glacialdelight:block/steamer_tray_smouldering",
+      "y": 180
+    },
+    "facing=south,support=tray,heat_level=kindled": {
+      "model": "glacialdelight:block/steamer_tray_kindled",
+      "y": 180
+    },
+    "facing=south,support=tray,heat_level=seething": {
+      "model": "glacialdelight:block/steamer_tray_seething",
+      "y": 180
+    },
+    "facing=south,support=tray,heat_level=freezing": {
+      "model": "glacialdelight:block/steamer_tray_freezing",
+      "y": 180
+    },
+    "facing=west,support=tray,heat_level=none": {
+      "model": "glacialdelight:block/steamer_tray",
+      "y": 270
+    },
+    "facing=west,support=tray,heat_level=smouldering": {
+      "model": "glacialdelight:block/steamer_tray_smouldering",
+      "y": 270
+    },
+    "facing=west,support=tray,heat_level=kindled": {
+      "model": "glacialdelight:block/steamer_tray_kindled",
+      "y": 270
+    },
+    "facing=west,support=tray,heat_level=seething": {
+      "model": "glacialdelight:block/steamer_tray_seething",
+      "y": 270
+    },
+    "facing=west,support=tray,heat_level=freezing": {
+      "model": "glacialdelight:block/steamer_tray_freezing",
+      "y": 270
+    },
+    "facing=north,support=handle,heat_level=none": {
+      "model": "glacialdelight:block/steamer_handle"
+    },
+    "facing=north,support=handle,heat_level=smouldering": {
+      "model": "glacialdelight:block/steamer_handle_smouldering"
+    },
+    "facing=north,support=handle,heat_level=kindled": {
+      "model": "glacialdelight:block/steamer_handle_kindled"
+    },
+    "facing=north,support=handle,heat_level=seething": {
+      "model": "glacialdelight:block/steamer_handle_seething"
+    },
+    "facing=north,support=handle,heat_level=freezing": {
+      "model": "glacialdelight:block/steamer_handle_freezing"
+    },
+    "facing=east,support=handle,heat_level=none": {
+      "model": "glacialdelight:block/steamer_handle",
+      "y": 90
+    },
+    "facing=east,support=handle,heat_level=smouldering": {
+      "model": "glacialdelight:block/steamer_handle_smouldering",
+      "y": 90
+    },
+    "facing=east,support=handle,heat_level=kindled": {
+      "model": "glacialdelight:block/steamer_handle_kindled",
+      "y": 90
+    },
+    "facing=east,support=handle,heat_level=seething": {
+      "model": "glacialdelight:block/steamer_handle_seething",
+      "y": 90
+    },
+    "facing=east,support=handle,heat_level=freezing": {
+      "model": "glacialdelight:block/steamer_handle_freezing",
+      "y": 90
+    },
+    "facing=south,support=handle,heat_level=none": {
+      "model": "glacialdelight:block/steamer_handle",
+      "y": 180
+    },
+    "facing=south,support=handle,heat_level=smouldering": {
+      "model": "glacialdelight:block/steamer_handle_smouldering",
+      "y": 180
+    },
+    "facing=south,support=handle,heat_level=kindled": {
+      "model": "glacialdelight:block/steamer_handle_kindled",
+      "y": 180
+    },
+    "facing=south,support=handle,heat_level=seething": {
+      "model": "glacialdelight:block/steamer_handle_seething",
+      "y": 180
+    },
+    "facing=west,support=handle,heat_level=none": {
+      "model": "glacialdelight:block/steamer_handle",
+      "y": 270
+    },
+    "facing=west,support=handle,heat_level=smouldering": {
+      "model": "glacialdelight:block/steamer_handle_smouldering",
+      "y": 270
+    },
+    "facing=west,support=handle,heat_level=kindled": {
+      "model": "glacialdelight:block/steamer_handle_kindled",
+      "y": 270
+    },
+    "facing=west,support=handle,heat_level=seething": {
+      "model": "glacialdelight:block/steamer_handle_seething",
+      "y": 270
+    },
+    "facing=west,support=handle,heat_level=freezing": {
+      "model": "glacialdelight:block/steamer_handle_freezing",
+      "y": 270
+    }
+  }
+}

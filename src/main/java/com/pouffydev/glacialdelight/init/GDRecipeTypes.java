@@ -1,6 +1,7 @@
 package com.pouffydev.glacialdelight.init;
 
 import com.pouffydev.glacialdelight.content.block.heater.HeaterFreezingRecipe;
+import com.pouffydev.glacialdelight.content.block.steamer.SteamingRecipe;
 import com.pouffydev.glacialdelight.content.block.stew_pot.SeethingStewPotRecipe;
 import com.pouffydev.glacialdelight.content.block.stew_pot.StewPotRecipe;
 import net.minecraft.world.item.crafting.Recipe;
@@ -21,6 +22,8 @@ public class GDRecipeTypes {
     public static final RegistryObject<StewPotRecipe.Serializer> stewingSerializer;
     public static final RegistryObject<RecipeType<SeethingStewPotRecipe>> seethingStewing;
     public static final RegistryObject<SeethingStewPotRecipe.Serializer> seethingStewingSerializer;
+    public static final RegistryObject<RecipeType<SteamingRecipe>> steaming;
+    public static final RegistryObject<SteamingRecipe.Serializer> steamingSerializer;
     public static <T extends Recipe<?>> RecipeType<T> registerRecipeType(final String identifier) {
         return new RecipeType<T>() {
             public String toString() {
@@ -34,6 +37,7 @@ public class GDRecipeTypes {
         freezingSerializer = recipeSerializers.register("heater_freezing", HeaterFreezingRecipe.Serializer::new);
         stewingSerializer = recipeSerializers.register("stewing", StewPotRecipe.Serializer::new);
         seethingStewingSerializer = recipeSerializers.register("seething_stewing", SeethingStewPotRecipe.Serializer::new);
+        steamingSerializer = recipeSerializers.register("steaming", SteamingRecipe.Serializer::new);
     }
     static {
         recipeTypes = DeferredRegister.create(ForgeRegistries.RECIPE_TYPES, ID);
@@ -46,6 +50,9 @@ public class GDRecipeTypes {
         });
         seethingStewing = recipeTypes.register("seething_stewing", () -> {
             return registerRecipeType("seething_stewing");
+        });
+        steaming = recipeTypes.register("steaming", () -> {
+            return registerRecipeType("steaming");
         });
     }
 }

@@ -196,8 +196,7 @@ public class StewPotBlockEntity extends HeatableBlockEntity implements MenuProvi
             } else {
                 cookingPot.cookTime = 0;
             }
-        } else
-        if (isHeated && cookingPot.hasInput()) {
+        } else if (isHeated && cookingPot.hasInput() && !isSeething) {
             Optional<StewPotRecipe> recipe = cookingPot.getMatchingRecipe(new RecipeWrapper(cookingPot.inventory));
             if (recipe.isPresent() && cookingPot.canCook(recipe.get())) {
                 didInventoryChange = cookingPot.processCooking(recipe.get(), cookingPot);

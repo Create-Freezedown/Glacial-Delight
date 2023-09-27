@@ -40,6 +40,7 @@ public class GlacialDelight
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogManager.getLogger();
     public static final RecipeBookType stewingRecipeType = RecipeBookType.create("STEWING");
+    //public static final RecipeBookType steamingRecipeType = RecipeBookType.create("STEAMING");
     public static final CreativeModeTab tab = new CreativeModeTab(GlacialDelight.ID)
     {
         @Nonnull

@@ -1,7 +1,6 @@
 package com.pouffydev.glacialdelight.content.block.stew_pot;
 
 import com.pouffydev.glacialdelight.content.block.base.SupportableFrostableContainerBlock;
-import com.pouffydev.glacialdelight.content.block.util.HeaterLevel;
 import com.pouffydev.glacialdelight.init.GDBlockEntities;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.color.block.BlockColor;
