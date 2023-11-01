@@ -49,7 +49,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-public class SteamerBlockEntity extends HeatableBlockEntity implements MenuProvider, Nameable, RecipeHolder {
+/*public class SteamerBlockEntity extends HeatableBlockEntity implements MenuProvider, Nameable, RecipeHolder {
     private final ItemStackHandler itemHandler = new ItemStackHandler(12) {
         @Override
         protected void onContentsChanged(int slot) {
@@ -437,3 +437,5 @@ public class SteamerBlockEntity extends HeatableBlockEntity implements MenuProvi
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
     }
 }
+
+ */

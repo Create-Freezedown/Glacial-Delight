@@ -15,7 +15,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SteamerScreen extends AbstractContainerScreen<SteamerMenu> {
+/*public class SteamerScreen extends AbstractContainerScreen<SteamerMenu> {
     private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(GlacialDelight.ID, "textures/gui/steamer.png");
     private static final Rectangle heatIcon = new Rectangle(138, 39, 17, 15);
     private static final Rectangle waterBar10 = new Rectangle(135, 28, 26, 1);
@@ -263,3 +263,5 @@ public class SteamerScreen extends AbstractContainerScreen<SteamerMenu> {
     }
     
 }
+
+ */

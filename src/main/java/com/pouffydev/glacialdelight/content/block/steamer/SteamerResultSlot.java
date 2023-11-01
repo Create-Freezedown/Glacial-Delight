@@ -7,7 +7,7 @@ import net.minecraftforge.items.SlotItemHandler;
 
 import javax.annotation.Nonnull;
 
-public class SteamerResultSlot extends SlotItemHandler {
+/*public class SteamerResultSlot extends SlotItemHandler {
     public final SteamerBlockEntity tileEntity;
     private final Player player;
     private int removeCount;
@@ -56,3 +56,5 @@ public class SteamerResultSlot extends SlotItemHandler {
         this.removeCount = 0;
     }
 }
+ 
+ */

@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import org.jetbrains.annotations.Nullable;
 
-public class FrostableBlock extends BaseEntityBlock {
+public class FrostableBlock extends GDEntityBlock {
     public static final BooleanProperty frozen = BooleanProperty.create("frozen");
     protected FrostableBlock(Properties pProperties) {
         super(pProperties);
@@ -21,9 +21,4 @@ public class FrostableBlock extends BaseEntityBlock {
         builder.add(frozen);
     }
     
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return null;
-    }
 }

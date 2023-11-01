@@ -19,7 +19,7 @@ import net.minecraftforge.items.SlotItemHandler;
 
 import java.util.Objects;
 
-public class SteamerMenu extends AbstractContainerMenu {
+/*public class SteamerMenu extends AbstractContainerMenu {
     
     public final SteamerBlockEntity blockEntity;
     public final ItemStackHandler inventory;
@@ -206,3 +206,5 @@ public class SteamerMenu extends AbstractContainerMenu {
     //    return slot < (getGridWidth() * getGridHeight());
     //}
 }
+ 
+ */

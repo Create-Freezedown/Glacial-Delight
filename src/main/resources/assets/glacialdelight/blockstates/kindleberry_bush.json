@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0,snowy=false": {
+      "model": "glacialdelight:block/kindleberry/00"
+    },
+    "age=1,snowy=false": {
+      "model": "glacialdelight:block/kindleberry/01"
+    },
+    "age=2,snowy=false": {
+      "model": "glacialdelight:block/kindleberry/02"
+    },
+    "age=3,snowy=false": {
+      "model": "glacialdelight:block/kindleberry/03"
+    },
+    "age=0,snowy=true": {
+      "model": "glacialdelight:block/kindleberry/00"
+    },
+    "age=1,snowy=true": {
+      "model": "glacialdelight:block/kindleberry/01_snowy"
+    },
+    "age=2,snowy=true": {
+      "model": "glacialdelight:block/kindleberry/02_snowy"
+    },
+    "age=3,snowy=true": {
+      "model": "glacialdelight:block/kindleberry/03_snowy"
+    }
+  }
+}

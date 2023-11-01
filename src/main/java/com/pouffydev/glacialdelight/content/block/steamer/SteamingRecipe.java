@@ -22,7 +22,7 @@ import net.minecraftforge.items.wrapper.RecipeWrapper;
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 
-public class SteamingRecipe implements Recipe<RecipeWrapper> {
+/*public class SteamingRecipe implements Recipe<RecipeWrapper> {
     
     private final ResourceLocation id;
     private final String group;
@@ -194,3 +194,5 @@ public class SteamingRecipe implements Recipe<RecipeWrapper> {
         }
     }
 }
+
+ */

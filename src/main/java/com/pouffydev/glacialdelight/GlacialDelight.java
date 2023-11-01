@@ -4,6 +4,8 @@ import com.mojang.logging.LogUtils;
 import com.pouffydev.glacialdelight.foundation.client.GDClientInit;
 import com.pouffydev.glacialdelight.init.*;
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.RecipeBookType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -22,6 +24,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.network.NetworkRegistry;
+import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -30,6 +35,9 @@ import org.apache.logging.log4j.Logger;
 import vectorwing.farmersdelight.client.ClientSetup;
 
 import javax.annotation.Nonnull;
+import java.util.function.BiConsumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(GlacialDelight.ID)
@@ -62,6 +70,7 @@ public class GlacialDelight
         GDRecipeTypes.recipeTypes.register(modEventBus);
         GDRecipeTypes.recipeSerializers.register(modEventBus);
         GDMenuTypes.menuTypes.register(modEventBus);
+        GDEffects.effects.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -90,8 +99,10 @@ public class GlacialDelight
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             // Some client setup code
+            
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
     }
+    
 }

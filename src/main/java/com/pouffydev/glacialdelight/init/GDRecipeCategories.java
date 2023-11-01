@@ -3,7 +3,7 @@ package com.pouffydev.glacialdelight.init;
 import com.google.common.base.Suppliers;
 import com.google.common.collect.ImmutableList;
 import com.pouffydev.glacialdelight.GlacialDelight;
-import com.pouffydev.glacialdelight.content.block.steamer.SteamingRecipe;
+//import com.pouffydev.glacialdelight.content.block.steamer.SteamingRecipe;
 import com.pouffydev.glacialdelight.content.block.steamer.SteamingRecipeBookTab;
 import com.pouffydev.glacialdelight.content.block.stew_pot.StewPotRecipe;
 import com.pouffydev.glacialdelight.content.block.stew_pot.StewPotRecipeBookTab;

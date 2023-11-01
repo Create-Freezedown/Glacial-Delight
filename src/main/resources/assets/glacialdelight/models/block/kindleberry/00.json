@@ -1,0 +1,28 @@
+{
+	"credit": "Made with Blockbench",
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"stalk": "glacialdelight:block/kindleberry_stalk",
+		"particle": "glacialdelight:block/kindleberry_stalk"
+	},
+	"elements": [
+		{
+			"from": [3, 0, 6.75736],
+			"to": [19, 16, 6.75736],
+			"rotation": {"angle": 45, "axis": "y", "origin": [11, 14, 11]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#stalk"},
+				"south": {"uv": [16, 0, 0, 16], "texture": "#stalk"}
+			}
+		},
+		{
+			"from": [0, 0, 8],
+			"to": [16, 16, 8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#stalk"},
+				"south": {"uv": [16, 0, 0, 16], "texture": "#stalk"}
+			}
+		}
+	]
+}

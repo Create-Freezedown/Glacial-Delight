@@ -2,6 +2,20 @@
   "block.glacialdelight.heater": "Heater",
   "block.glacialdelight.stew_pot": "Stew Pot",
   "block.glacialdelight.steamer": "Steamer",
+  "block.glacialdelight.kindleberry_bush": "Kindleberry Bush",
+  "block.glacialdelight.pastry_board": "Pastry Board",
+
+  "item.glacialdelight.salvage_tin": "Old Tin",
+
+  "item.glacialdelight.steamed_carrot": "Steamed Carrot",
+  "item.glacialdelight.kindleberry": "Kindleberry",
+  "item.glacialdelight.smoulderberry": "Smoulderberry",
+  "item.glacialdelight.scorchberry": "Scorchberry",
+  "item.glacialdelight.kindleberry_seeds": "Kindleberry Seeds",
+
+  "glacialdelight.crops.main_crop_yield": "Main Crop Yield",
+    "glacialdelight.crops.secondary_crop_yield": "Secondary Crop Yield(s)",
+    "glacialdelight.crops.mutation_level": "Mutation Level %s",
 
   "glacialdelight.container.steamer.no_water": "No Water",
   "glacialdelight.container.steamer.no_steam": "No Steam",

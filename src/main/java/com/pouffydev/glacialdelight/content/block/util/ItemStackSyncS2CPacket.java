@@ -1,6 +1,5 @@
 package com.pouffydev.glacialdelight.content.block.util;
 
-import com.pouffydev.glacialdelight.content.block.steamer.SteamerBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -45,9 +44,9 @@ public class ItemStackSyncS2CPacket {
     public boolean handle(Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
-            if(Minecraft.getInstance().level.getBlockEntity(pos) instanceof SteamerBlockEntity blockEntity) {
-                blockEntity.setHandler(this.itemStackHandler);
-            }
+            //if(Minecraft.getInstance().level.getBlockEntity(pos) instanceof SteamerBlockEntity blockEntity) {
+            //    blockEntity.setHandler(this.itemStackHandler);
+            //}
         });
         return true;
     }

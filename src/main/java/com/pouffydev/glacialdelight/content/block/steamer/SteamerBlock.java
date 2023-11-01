@@ -37,7 +37,7 @@ import vectorwing.farmersdelight.common.registry.ModSounds;
 
 import javax.annotation.Nullable;
 
-@SuppressWarnings("deprecation")
+/*@SuppressWarnings("deprecation")
 public class SteamerBlock extends SupportableFrostableContainerBlock {
     public static final IntegerProperty waterLevel;
     public static final IntegerProperty steamLevel;
@@ -127,3 +127,5 @@ public class SteamerBlock extends SupportableFrostableContainerBlock {
         steamLevel = IntegerProperty.create("steam_level", 0, 1000);
     }
 }
+
+ */
